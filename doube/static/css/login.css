@@ -1,0 +1,84 @@
+/*reset css*/
+html, body, div, span,h1, h2, h3, h4, h5, h6, p,ul,ol{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: "Microsoft Yahei","微软雅黑","heiti";
+	vertical-align: baseline;
+}
+nav{
+	display:block;
+}
+a,a:link,a:hover{
+	text-decoration: none;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*login*/
+.container{
+	background-color: #abdff7;
+}
+.introduce{
+	height: 500px;
+}
+.login{
+	width: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+.login-input{
+	margin: 20px 0;
+	text-align: center;
+	position: relative;
+}
+.login-input input{
+	height: 45px;
+	width: 185px;
+	border: none;
+	padding: 0 50px;
+	font-size: 19px;
+}
+.login-word{
+	font-size: 19px;
+	position: absolute;
+	color: #abdff7;
+	line-height: 45px;
+	left:20px;	
+}
+.login-logo{
+		width: 20%;
+		position: absolute;
+		right: 0;
+		height:100%;
+}
+.login-logo-1{
+	background: url(../img/1.png) no-repeat center center;
+}
+.login-logo-2{
+	background: url(../img/2.png) no-repeat center center;
+}
+.login-btn{
+	width: 49%;
+	display: inline-block;
+}
+.login-btn input{
+	margin: 10px 20px;
+	border: 5px #fff solid;
+	background-color: #abdff7;
+	color: #eee;
+	font-size: 28px;
+	padding: 0 15px;
+	cursor: pointer;
+}
+.pointer{
+	height: 230px;
+}
