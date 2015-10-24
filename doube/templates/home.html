@@ -12,8 +12,8 @@
 		    		<img src="../static/img/zan-1.png" style="width: 100%;height:100%;">
 		    	</div>
 		    	<ul class="nav-list">
-		    		<li><a href="#">LOG IN</a></li>
-		    		<li><a href="#">LOG OUT</a></li>
+		    		<li><a href="/login">LOG IN</a></li>
+		    		<li><a href="/logout">LOG OUT</a></li>
 		    	</ul>
 		    </div>
 		    <div class="shape">
@@ -30,7 +30,10 @@
 			<!--点击后-->
 			<div class="share-content">
 				<form method="post">
-					<textarea placeholder="比逗事......"></textarea> 
+					<!--textarea placeholder="比逗事......"></textarea-->
+					{{ form.hidden_tag() }}
+					{{ form.doube(placeholder="比逗事......") }}
+					{{ form.submit }}
 					<div class="share-foot">
 						<div class="file-logo"></div>
 						<input type="file" class="input-file" alt="上传">
@@ -41,70 +44,76 @@
 			<div class="list-tittle">
 				<span>逗榜</span>
 			</div>
-			<div class="hot-list">
-				<div class="list-0">
-					<div class="list-1-left">
-						<div class="list-img-1">
-							<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+			{% for i in [0, 2, 4] %}
+				<div class="hot-list">
+					<div class="list-0">
+						<div class="list-1-left">
+							<div class="list-img-1">
+								<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+							</div>
+							<div class="list-zan">
+								<img src="../static/img/zan-1.png">
+								<span>{{ best_dou[i].dou }}</span>
+							</div>
 						</div>
-						<div class="list-zan">
-							<img src="../static/img/zan-1.png">
-							<span>100逗</span>
+						<div class="list-1-right">
+							<div class="tittle">{{ best_dou[i].author.username }}</div>
+							<div class="content">{{ best_dou[i].body }}</div>
 						</div>
 					</div>
-					<div class="list-1-right">
-						<div class="tittle">标题</div>
-						<div class="content">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
-					</div>
-				</div>
-				<div class="list-0">
-					<div class="list-2-left">
-						<div class="tittle">标题</div>
-						<div class="content">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+					<div class="list-0">
+						<div class="list-2-left">
+							<div class="tittle">{{ best_dou[i+1].author.username }}</div>
+							<div class="content">{{ best_dou[i+1].body }}</div>
 
-					</div>
-					<div class="list-2-right">
-						<div class="list-img-1">
-							<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
 						</div>
-						<div class="list-zan">
-							<img src="../static/img/zan-1.png">
-							<span>100逗</span>
+						<div class="list-2-right">
+							<div class="list-img-1">
+								<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+							</div>
+							<div class="list-zan">
+								<img src="../static/img/zan-1.png">
+								<span>{{ best_dou[i+1].dou }}</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			{% endfor %}
 			<div class="list-tittle">
 				<span>鲜逗</span>
 			</div>
-			<div class="list">
-				<div class="list-com">
-					<div class="list-img">
-						<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
-						<div class="list-information">
-							 <div class="tittle">标题</div>
-							<div class="content">啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+				<div class="list">
+				{% for new_doube in new_dou[::2] %}
+					<div class="list-com">
+						<div class="list-img">
+							<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+							<div class="list-information">
+								<div class="tittle">{{ new_doube.author.username }}</div>
+								<div class="content">{{ new_doube.body }}</div>
+							</div>
+						</div>
+						<div class="list-zan">
+							<img src="../static/img/zan-1.png">
+							<span>{{ new_doube.dou }}</span>
 						</div>
 					</div>
-					<div class="list-zan">
-						<img src="../static/img/zan-1.png">
-						<span>100逗</span>
-					</div>
-				</div>
-				<div class="list-com">
-					<div class="list-img">
-						<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
-						<div class="list-information">
-							 <div class="tittle">标题</div>
-							<div class="content">啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+				{% endfor %}
+				{% for new_doube in new_dou[1::2] %}
+					<div class="list-com">
+						<div class="list-img">
+							<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+							<div class="list-information">
+								<div class="tittle">{{ new_doube.author.username }}</div>
+								<div class="content">{{ new_doube.body }}</div>
+							</div>
+						</div>
+						<div class="list-zan">
+							<img src="../static/img/zan-1.png">
+							<span>{{ new_doube.dou }}</span>
 						</div>
 					</div>
-					<div class="list-zan">
-						<img src="../static/img/zan-1.png">
-						<span>100逗</span>
-					</div>
+				{% endfor %}
 				</div>
 			</div>
-	</div>
 </body>
 </html>

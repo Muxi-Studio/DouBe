@@ -62,7 +62,7 @@ def doube():
 	best_dou = []  # 比逗榜
 
 	new_dou = Doube.query.order_by('-id').all()
-	best_dou = Doube.query.order_by(Doube.dou)[:5:-1]  # 默认显示5个
+	best_dou = Doube.query.order_by(Doube.dou)[:6:-1]  # 默认显示5个
 
 	# 逗赞功能
 	# /doube?doube=id
@@ -87,7 +87,7 @@ def doube():
 
 	return render_template(
 			# 'doube.html',
-			'test_doube.html',
+			'home.html',
 			new_dou=new_dou, best_dou=best_dou,
 			douzan=douzan, form=form
 	)
