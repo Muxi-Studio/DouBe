@@ -27,3 +27,13 @@ class RegisterForm(Form):
         """确定该用户名没有被注册"""
         if User.query.filter_by(username=field.data).first():
             raise ValidationError('该用户名已经被注册')
+
+class DouZan(Form):
+	"""将提交按钮作为点赞按钮"""
+	douzan = SubmitField('逗赞~')
+
+
+class NewDoube(Form):
+	"""创建逗文"""
+	doube = StringField('文字描述', validators=[Required()])
+	submit = SubmitField('提交')

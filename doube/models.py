@@ -56,7 +56,7 @@ class Doube(db.Model):
     __tablename__ = 'doubes'
     id = db.Column(db.Integer, primary_key=True)
 	# title = db.Column(db.Text)
-    body = db.Column(db.Text)  # body 中包含图片
+    body = db.Column(db.Text(64))  # body 中包含图片
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     dou = db.Column(db.Integer)  # 逗赞

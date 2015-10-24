@@ -1,0 +1,23 @@
+<!-- this is a test for doube html-->
+<body>
+<head></head>
+<html>
+	{% for doube in new_dou %}
+		<h3>{{ doube.dou }}</h3>
+	<form method="post" action="/index?doube={{ doube.id }}">
+		<div class="douzan">
+			{{ douzan.hidden_tag() }}
+			{{ douzan.douzan }}
+		</div>
+	</form>
+	{% endfor %}
+
+	<form method="post">
+		<div class="new_doube">
+			{{ form.hidden_tag() }}
+			{{ form.doube }}
+			{{ form.submit }}
+		</div>
+	</form>
+</html>
+</body>

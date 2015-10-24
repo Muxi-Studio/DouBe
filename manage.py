@@ -35,6 +35,25 @@ manager.add_command('shell', Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)
 
 
+@manager.command
+def adduser(username):
+    """添加用户"""
+    from getpass import getpass
+    password = getpass('password: ')
+    confirm = getpass('confirm: ')
+    if password == confirm:
+        user = User(
+            username=username,
+            password=password
+        )
+        db.session.add(user)
+        db.session.commit()
+        return "user %s add in database" % username
+    else:
+        return "密码不匹配"
+        sys.exit(0)
+
+
 if __name__ == "__main__":
     app.debug = True
     manager.run()
