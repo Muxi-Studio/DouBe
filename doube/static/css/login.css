@@ -25,10 +25,25 @@ table {
 }
 /*login*/
 .container{
-	background-color: #abdff7;
+	
 }
-.introduce{
-	height: 500px;
+.index-2{
+	margin: 105px auto;
+}
+.bgimg{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+}
+.img-word{
+	height: 340px;
+	text-align: center;
+}
+.img-word img{
+	margin:  95px auto;
 }
 .login{
 	width: 300px;
@@ -42,9 +57,9 @@ table {
 }
 .login-input input{
 	height: 45px;
-	width: 185px;
+	width: 183px;
 	border: none;
-	padding: 0 50px;
+	padding: 0 48px;
 	font-size: 19px;
 }
 .login-word{
