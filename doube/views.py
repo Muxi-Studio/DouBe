@@ -13,7 +13,7 @@ from werkzeug import secure_filename
 
 
 # 允许上传至服务器的文件集合
-ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
 def allowed_file(filename):
@@ -43,7 +43,7 @@ def login():
 def logout():
     logout_user()
     flash('你已登出!')
-    return redirect(url_for('index'))
+    return redirect(url_for('doube'))
 
 
 @app.route('/register')
@@ -85,19 +85,19 @@ def doube():
 			doube = Doube.query.filter_by(id=id).first()
 			doube.dou += 1  # dou 增加1
 			return redirect(url_for('doube'))
-		if request.args.get('upload'):
-			file = request.files['file']
-			if file and allowed_file(file.filename):
-				filename = secure_filename(file.filename)
-				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-				session['fileurl'] = 'http://121.43.230.104:6666/static/upload/%s' % filename
-				return redirect(url_for('doube'))
 
-	# 发布逗文
+	# 发布逗文(文字描述+图片上传)
 	if form.validate_on_submit():
+		file = request.files['file']
+		if file and allowed_file(file.filename):
+			filename = secure_filename(file.filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			img = 'http://121.43.230.104:6666/static/upload/%s' % filename
+
 		doube = Doube(
 			body = form.doube.data,
 			author_id  = current_user.id,
+			img = img,
             dou = 0
 		)
 		db.session.add(doube)
@@ -108,5 +108,6 @@ def doube():
 			# 'doube.html',
 			'home.html',
 			new_dou=new_dou, best_dou=best_dou,
-			douzan=douzan, form=form
+			douzan=douzan, form=form,
+			session=session
 	)

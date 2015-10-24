@@ -9,7 +9,7 @@
 	<div class="bgcolor">
 		    <div class="nav">
 		    	<div class="user-img">
-		    		<img src="../static/img/zan-1.png" style="width: 100%;height:100%;">
+				<img src="{{ session[] }}" style="width: 100%;height:100%;">
 		    	</div>
 		    	<ul class="nav-list">
 		    		<li><a href="/login">LOG IN</a></li>
@@ -33,7 +33,6 @@
 					<!--textarea placeholder="比逗事......"></textarea-->
 					{{ form.hidden_tag() }}
 					{{ form.doube(placeholder="比逗事......") }}
-					{{ form.submit }}
 					<div class="share-foot">
 						<div class="file-logo"></div>
 						<input type="file" name="file" class="input-file" alt="上传">
