@@ -19,30 +19,29 @@ function showimg(){
 		function(){
 			switch (clicktimes){
 			case 0:
-			$("#dou").show(2000);
+			$("#dou").show(1200);
 			clicktimes++;
 			break;
 			case 1:
-			$("#bi").show(2000);
+			$("#bi").show(1200);
 			clicktimes++;
 			break;
 			case 2:
-			$("#text_1").show(2000);
+			$("#text_1").show(1200);
 			clicktimes++;
 			break;s
 			case 3:
-			$("#text_2").show(2000);
+			$("#text_2").show(1200);
 			clicktimes++;
 			break;
 			case 4:
-			$(".login").show(1000);
 			$("#dou").hide(1000);
 			$("#bi").hide(1000);
 			$("#text_1").hide(1000);
 			$("#text_2").hide(1000);
-			$(".login").hide(1000);
-			$(".img-word").show(1000);
 			$(".login").show(1000);
+			$(".img-word").show(1000);
+			clicktimes++;
 			break;
 			}
 		}
