@@ -2,8 +2,8 @@
 <body>
 <head></head>
 <html>
-	{% for doube in new_dou %}
-		<h3>{{ doube.dou }}</h3>
+	{% for doube in best_dou %}
+	<h3>{{ doube.id }} --> {{ doube.dou }}</h3>
 	<form method="post" action="/index?doube={{ doube.id }}">
 		<div class="douzan">
 			{{ douzan.hidden_tag() }}
