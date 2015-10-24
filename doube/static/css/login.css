@@ -25,18 +25,24 @@ table {
 }
 /*login*/
 .container{
-	
+	background-color: #abdff7;
+	text-align: center;
 }
 .index-2{
-	margin: 105px auto;
+	padding-bottom: 160px;
 }
-.bgimg{
+.paopaoimg{
 	position: absolute;
-	right: 0;
-	bottom: 0;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
+	right: 25%;
+	bottom: 100px;
+}
+.footer{
+	height: 200px; 
+	background-color:#43de85;
+}
+.shape-2{
+	height: 25px;
+	background-color: #fff;
 }
 .img-word{
 	height: 340px;
