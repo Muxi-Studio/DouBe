@@ -9,15 +9,18 @@
 	<div class="container">
 			<div class="introduce"></div>
 			<form method="post">
+				{{ form.hidden_tag() }}
 				<div class="login">
-					<div class="login-input">	
+					<div class="login-input">
 						<span class="login-word">账号</span>
-						<input type="text" >
+						<!--input type="text" -->
+						{{ form.username }}
 						<label class="login-logo login-logo-1"></label>
 					</div>
 					<div class="login-input">
 						<span class="login-word">密码</span>
-						<input type="text" >
+						<!--input type="text"-->
+						{{ form.password }}
 						<label class="login-logo login-logo-2"></label>
 					</div>
 					<div class="login-btn"><input type="submit" value="登录"></div>

@@ -22,7 +22,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
-            return redirect(url_for('user'))
+            return redirect(url_for('doube'))
         flash('该用户不存在')
     return render_template('login.html', form=form)
 
