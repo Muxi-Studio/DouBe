@@ -1,0 +1,6 @@
+flask
+flask-login
+flask-sqlalchemy
+flask-script
+flask-admin
+flask-migrate
