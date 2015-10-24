@@ -29,16 +29,12 @@ table {
 	text-align: center;
 }
 .index-2{
-	padding-bottom: 160px;
-}
-.paopaoimg{
-	position: absolute;
-	right: 25%;
-	bottom: 100px;
+	padding-bottom: 200px;
 }
 .footer{
 	height: 200px; 
 	background-color:#43de85;
+	position: 
 }
 .shape-2{
 	height: 25px;
@@ -55,6 +51,7 @@ table {
 	width: 300px;
 	margin: 0 auto;
 	position: relative;
+	z-index: 5;
 }
 .login-input{
 	margin: 20px 0;
