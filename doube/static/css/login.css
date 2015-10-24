@@ -25,20 +25,24 @@ table {
 }
 /*login*/
 .container{
-	background-color: #abdff7;
+	background-color: #4a7ba0;
 	text-align: center;
+	padding-bottom: 145px;
 }
-.index-2{
-	padding-bottom: 200px;
+.bgimg{
+	position: absolute;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
 }
 .footer{
-	height: 200px; 
 	background-color:#43de85;
-	position: 
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 }
-.shape-2{
-	height: 25px;
-	background-color: #fff;
+.footer img{
+	margin-top: -120px;
 }
 .img-word{
 	height: 340px;
@@ -68,7 +72,7 @@ table {
 .login-word{
 	font-size: 19px;
 	position: absolute;
-	color: #abdff7;
+	color:  #4a7ba0;
 	line-height: 45px;
 	left:20px;	
 }
@@ -91,7 +95,7 @@ table {
 .login-btn input{
 	margin: 10px 20px;
 	border: 5px #fff solid;
-	background-color: #abdff7;
+	background-color: #4a7ba0;
 	color: #eee;
 	font-size: 28px;
 	padding: 0 15px;
@@ -100,3 +104,4 @@ table {
 .pointer{
 	height: 230px;
 }
+/*首页*/
