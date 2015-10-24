@@ -62,4 +62,4 @@ class Doube(db.Model):
     dou = db.Column(db.Integer)  # 逗赞
 
     def __repr__(self):
-        return '<%r is a Doube hahaha>' % self.title
+        return '<doube is a Doube hahaha>'
