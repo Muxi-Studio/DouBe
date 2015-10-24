@@ -1,13 +1,13 @@
-"""doube1
+"""doube0
 
-Revision ID: 3c4a7e1d232d
+Revision ID: 1e46d1a84138
 Revises: None
-Create Date: 2015-10-24 13:04:17.143812
+Create Date: 2015-10-24 14:35:13.254504
 
 """
 
 # revision identifiers, used by Alembic.
-revision = '3c4a7e1d232d'
+revision = '1e46d1a84138'
 down_revision = None
 
 from alembic import op
@@ -20,15 +20,16 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=64), nullable=True),
     sa.Column('password_hash', sa.String(length=168), nullable=True),
+    sa.Column('avatar', sa.Text(), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_users_username'), 'users', ['username'], unique=True)
     op.create_table('doubes',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('title', sa.Text(), nullable=True),
     sa.Column('body', sa.Text(), nullable=True),
     sa.Column('author_id', sa.Integer(), nullable=True),
     sa.Column('timestamp', sa.DateTime(), nullable=True),
+    sa.Column('dou', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['author_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

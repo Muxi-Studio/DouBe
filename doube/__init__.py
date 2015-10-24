@@ -12,12 +12,13 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = "I hate flask!"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///" + os.path.join(basedir, "doube.sqlite")
 app.config["SQLALCHEMY_COMMIT_ON_TEARDOWN"] = True
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
 login_manager.session_protection = 'strong'
-# login_manager.login_view = 'login'
+login_manager.login_view = 'login'
 
 
 from . import views, models, forms

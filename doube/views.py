@@ -1,9 +1,10 @@
 # coding: utf-8
 
 from . import app, db
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, \
+		request
 from .forms import LoginForm, RegisterForm
-from .models import User
+from .models import User, Doube
 from flask.ext.login import login_user, logout_user, login_required
 
 
@@ -47,4 +48,26 @@ def register():
 
 @app.route('/index')
 def doube():
-	return render_template('doube.html')
+	"""
+	趣味生活，就是要比
+		比逗榜: 依据[逗]的个数进行排序
+		鲜逗: 依据时间进行排序
+		逗赞: 点赞
+	"""
+	new_dou = []  # 鲜逗
+	best_dou = []  # 比逗榜
+
+	new_dou = Doube.query.order_by('-id').all()
+	best_dou = Doube.query.order_by(best_dou.dou)[:5]  # 默认显示5个
+
+	# 逗赞功能
+	# /doube?doube=id
+	# 并没有使用ajax
+	if request.method == 'POST':
+		if request.args.get('doube'):
+			id = request.args.get('doube')
+			doube = Doube.query.filter_by(id=id).first()
+			doube.dou += 1  # dou 增加1
+		return redirect(url_for('doube'))
+	return render_template('doube.html', new_dou=new_dou, best_dou=best_dou)
+

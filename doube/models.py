@@ -21,6 +21,7 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(168))
+    avatar = db.Column(db.Text)  # url
     doube = db.relationship('Doube', backref="author", lazy='dynamic')
 
 
@@ -50,14 +51,15 @@ class User(UserMixin, db.Model):
 
 
 class Doube(db.Model):
-    """逗比类哈哈哈哈"""
+    """逗比类哈哈哈哈
+	   用户头像, 文字论述, 图片"""
     __tablename__ = 'doubes'
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.Text)
-    body = db.Column(db.Text)
+	# title = db.Column(db.Text)
+    body = db.Column(db.Text)  # body 中包含图片
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
-
+    dou = db.Column(db.Integer)  # 逗赞
 
     def __repr__(self):
         return '<%r is a Doube hahaha>' % self.title
