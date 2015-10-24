@@ -48,7 +48,7 @@
 					<div class="list-0">
 						<div class="list-1-left">
 							<div class="list-img-1">
-								<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+                                <img src={{ best_dou[i].img }} style="width: 100%;height:100%;">
 							</div>
 							<div class="list-zan">
 								<img src="../static/img/zan-1.png">
@@ -68,7 +68,7 @@
 						</div>
 						<div class="list-2-right">
 							<div class="list-img-1">
-								<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+								<img src={{ best_dou[i].img }} style="width: 100%;height:100%;">
 							</div>
 							<div class="list-zan">
 								<img src="../static/img/zan-1.png">
@@ -85,7 +85,7 @@
 				{% for new_doube in new_dou[::2] %}
 					<div class="list-com">
 						<div class="list-img">
-							<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+                            <img src={{ new_doube.img }} style="width: 100%;height:100%;">
 							<div class="list-information">
 								<div class="tittle">{{ new_doube.author.username }}</div>
 								<div class="content">{{ new_doube.body }}</div>
@@ -96,11 +96,11 @@
 							<span>{{ new_doube.dou }}</span>
 						</div>
 					</div>
-				{% endfor %}
-				{% for new_doube in new_dou[1::2] %}
+                {% endfor %}
+                {% for new_doube in new_dou[1::2] %}
 					<div class="list-com">
 						<div class="list-img">
-							<img src="../static/img/test.jpg" style="width: 100%;height:100%;">
+                            <img src={{ new_doube.img }} style="width: 100%;height:100%;">
 							<div class="list-information">
 								<div class="tittle">{{ new_doube.author.username }}</div>
 								<div class="content">{{ new_doube.body }}</div>
