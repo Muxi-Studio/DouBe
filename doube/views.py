@@ -1,13 +1,24 @@
 # coding: utf-8
 
+import os
 from . import app, db
 from flask import render_template, redirect, url_for, flash, \
-		request
+		request, session
 from .forms import LoginForm, RegisterForm, DouZan, \
 		NewDoube
 from .models import User, Doube
 from flask.ext.login import login_user, logout_user, login_required, \
 		current_user
+from werkzeug import secure_filename
+
+
+# 允许上传至服务器的文件集合
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+
+def allowed_file(filename):
+	"""检查文件扩展名是否符合标准"""
+	return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 # @app.route('/test')
@@ -67,12 +78,20 @@ def doube():
 	# 逗赞功能
 	# /doube?doube=id
 	# 并没有使用ajax
+	# /doube?upload=True
 	if request.method == 'POST':
 		if request.args.get('doube'):
 			id = request.args.get('doube')
 			doube = Doube.query.filter_by(id=id).first()
 			doube.dou += 1  # dou 增加1
 			return redirect(url_for('doube'))
+		if request.args.get('upload'):
+			file = request.files['file']
+			if file and allowed_file(file.filename):
+				filename = secure_filename(file.filename)
+				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+				session['fileurl'] = 'http://121.43.230.104:6666/static/upload/%s' % filename
+				return redirect(url_for('doube'))
 
 	# 发布逗文
 	if form.validate_on_submit():
