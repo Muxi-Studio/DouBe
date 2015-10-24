@@ -1,14 +1,10 @@
-var clicktimes = 0;
 $(document).ready(function(){
 	hideimg();
-	showimg1();
-	showimg2();
-	showimg3();
-	showimg4();
-	showlogin();
-});
+	showimg();
+})
 
 function hideimg(){
+	$("#black").hide();
 	$("#dou").hide();
 	$("#bi").hide();
 	$("#text_1").hide();
@@ -17,38 +13,38 @@ function hideimg(){
 	$(".img-word").hide();
 }
 
-function showimg1(){
-	$("#black").click(function(){
-		$("#dou").show(2000);
-	});	
-}
-
-function showimg2(){
-	$("#dou").click(function(){
-		$("#bi").show(2000);
-	})
-}
-
-function showimg3(){
-	$("#bi").click(function(){
-		$("#text_1").show(2000);
-	})
-}
-
-function showimg4(){
-	$("#text_1").click(function(){
-		$("#text_2").show(2000);
-	})
-}
-
-function showlogin(){
-	$("#text_2").click(function(){
-		$("#dou").hide();
-		$("#bi").hide();
-		$("#text_1").hide();
-		$("#text_2").hide();
-		$(".login").hide();
-		$(".img-word").show();
-		$(".login").show();
-	})
+function showimg(){
+	var clicktimes = 0;
+	$(document).click(
+		function(){
+			switch (clicktimes){
+			case 0:
+			$("#dou").show(2000);
+			clicktimes++;
+			break;
+			case 1:
+			$("#bi").show(2000);
+			clicktimes++;
+			break;
+			case 2:
+			$("#text_1").show(2000);
+			clicktimes++;
+			break;s
+			case 3:
+			$("#text_2").show(2000);
+			clicktimes++;
+			break;
+			case 4:
+			$(".login").show(1000);
+			$("#dou").hide(1000);
+			$("#bi").hide(1000);
+			$("#text_1").hide(1000);
+			$("#text_2").hide(1000);
+			$(".login").hide(1000);
+			$(".img-word").show(1000);
+			$(".login").show(1000);
+			break;
+			}
+		}
+	)
 }
