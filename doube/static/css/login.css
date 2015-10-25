@@ -80,7 +80,7 @@ img{
 	position: absolute;
 	color:  #4a7ba0;
 	line-height: 45px;
-	left:20px;	
+	left:20px;
 }
 .login-logo{
 		width: 20%;
@@ -326,4 +326,11 @@ img{
 	color:  #5f9ecd;
 	font-size: 60px;
 	font-weight: bold;
+}
+.zan-btn{
+	position: absolute;
+	opacity: 0;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
 }
