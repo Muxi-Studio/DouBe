@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>首页</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/login.css">
+	<script type="text/javascript" src="../static/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../static/js/home.js"></script>
 </head>
 <body>
 	<div class="bgcolor">
@@ -51,7 +53,7 @@
                                 <img src={{ best_dou[i].img }} style="width: 100%;height:100%;">
 							</div>
 							<div class="list-zan">
-								<img src="../static/img/zan-1.png">
+								<img src="../static/img/zan-1.png" class="listzan">
 								<span>{{ best_dou[i].dou }}</span>
 							</div>
 						</div>
@@ -71,7 +73,7 @@
 								<img src={{ best_dou[i].img }} style="width: 100%;height:100%;">
 							</div>
 							<div class="list-zan">
-								<img src="../static/img/zan-1.png">
+								<img src="../static/img/zan-1.png" class="listzan">
 								<span>{{ best_dou[i+1].dou }}</span>
 							</div>
 						</div>
@@ -91,8 +93,8 @@
 								<div class="content">{{ new_doube.body }}</div>
 							</div>
 						</div>
-						<div class="list-zan">
-							<img src="../static/img/zan-1.png">
+						<div class="listzan">
+							<img src="../static/img/zan-1.png" class="listzan">
 							<span>{{ new_doube.dou }}</span>
 						</div>
 					</div>
@@ -107,7 +109,7 @@
 							</div>
 						</div>
 						<div class="list-zan">
-							<img src="../static/img/zan-1.png">
+							<img src="../static/img/zan-1.png" class="listzan">
 							<span>{{ new_doube.dou }}</span>
 						</div>
 					</div>
