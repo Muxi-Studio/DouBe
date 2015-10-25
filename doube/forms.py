@@ -3,7 +3,7 @@
 
 from .models import User
 from flask.ext.wtf import Form
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import Required, Length, EqualTo
 from wtforms import ValidationError
 
@@ -35,5 +35,5 @@ class DouZan(Form):
 
 class NewDoube(Form):
 	"""创建逗文"""
-	doube = StringField('文字描述', validators=[Required()])
+	doube = TextAreaField('文字描述', validators=[Required()])
 	submit = SubmitField('提交')

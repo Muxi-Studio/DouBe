@@ -60,6 +60,7 @@ class Doube(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     dou = db.Column(db.Integer)  # 逗赞
+    img = db.Column(db.String)  # 图片
 
     def __repr__(self):
         return '<doube is a Doube hahaha>'

@@ -1,13 +1,24 @@
 # coding: utf-8
 
+import os
 from . import app, db
 from flask import render_template, redirect, url_for, flash, \
-		request
+		request, session
 from .forms import LoginForm, RegisterForm, DouZan, \
 		NewDoube
 from .models import User, Doube
 from flask.ext.login import login_user, logout_user, login_required, \
 		current_user
+from werkzeug import secure_filename
+
+
+# 允许上传至服务器的文件集合
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
+
+def allowed_file(filename):
+	"""检查文件扩展名是否符合标准"""
+	return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
 # @app.route('/test')
@@ -32,7 +43,7 @@ def login():
 def logout():
     logout_user()
     flash('你已登出!')
-    return redirect(url_for('index'))
+    return redirect(url_for('doube'))
 
 
 @app.route('/register')
@@ -62,11 +73,12 @@ def doube():
 	best_dou = []  # 比逗榜
 
 	new_dou = Doube.query.order_by('-id').all()
-	best_dou = Doube.query.order_by(Doube.dou)[:5:-1]  # 默认显示5个
+	best_dou = Doube.query.order_by(Doube.dou)[:6:-1]  # 默认显示5个
 
 	# 逗赞功能
 	# /doube?doube=id
 	# 并没有使用ajax
+	# /doube?upload=True
 	if request.method == 'POST':
 		if request.args.get('doube'):
 			id = request.args.get('doube')
@@ -74,11 +86,18 @@ def doube():
 			doube.dou += 1  # dou 增加1
 			return redirect(url_for('doube'))
 
-	# 发布逗文
+	# 发布逗文(文字描述+图片上传)
 	if form.validate_on_submit():
+		file = request.files['file']
+		if file and allowed_file(file.filename):
+			filename = secure_filename(file.filename)
+			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+			img = 'http://121.43.230.104:6666/static/upload/%s' % filename
+
 		doube = Doube(
 			body = form.doube.data,
 			author_id  = current_user.id,
+			img = img,
             dou = 0
 		)
 		db.session.add(doube)
@@ -87,7 +106,8 @@ def doube():
 
 	return render_template(
 			# 'doube.html',
-			'test_doube.html',
+			'home.html',
 			new_dou=new_dou, best_dou=best_dou,
-			douzan=douzan, form=form
+			douzan=douzan, form=form,
+			session=session
 	)
