@@ -30,7 +30,10 @@ img{
 .container{
 	background-color: #4a7ba0;
 	text-align: center;
-	padding-bottom: 145px;
+	height: 100%;
+}
+.index-2{
+	padding-bottom: 230px;
 }
 .bgimg{
 	position: absolute;
