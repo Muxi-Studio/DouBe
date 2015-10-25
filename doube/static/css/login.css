@@ -30,7 +30,10 @@ img{
 .container{
 	background-color: #4a7ba0;
 	text-align: center;
-	padding-bottom: 145px;
+	height: 100%;
+}
+.index-2{
+	padding-bottom: 230px;
 }
 .bgimg{
 	position: absolute;
@@ -113,7 +116,7 @@ img{
 }
 .hot-list{
 	width: 1000px;
-	margin:20px auto;
+	margin:20px auto 0;
 }
 .list-0{
 	height: 300px;
@@ -213,13 +216,13 @@ img{
 }
 .list{
 	width: 1000px;
-	margin: 20px auto;
+	margin: 0px auto;
 }
 .list-com{
 	width: 48%;
 	height: 300px;
 	display: inline-block;
-	margin: 0 8px;
+	margin: 20px 8px;
 }
 .list-img{
 	width: 100%;
