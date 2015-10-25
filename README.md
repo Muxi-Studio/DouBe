@@ -10,7 +10,7 @@
 
 ## 项目截图:
 #### 1. 启动界面
-![启动](http://7xj431.com1.z0.glb.clouddn.com/逗比)
+![启动](http://7xj431.com1.z0.glb.clouddn.com/展示GIF.gif)
 
 #### 2. 登录界面
 ![登录](http://7xj431.com1.z0.glb.clouddn.com/屏幕快照%202015-10-24%20下午9.07.30.png)
