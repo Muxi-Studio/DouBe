@@ -26,7 +26,7 @@ def allowed_file(filename):
 # return "<h1>this is a test!</h1>"
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -38,7 +38,7 @@ def login():
     return render_template('login.html', form=form)
 
 
-@app.route('/logout')
+@app.route('/logout/')
 @login_required
 def logout():
     logout_user()
@@ -46,7 +46,7 @@ def logout():
     return redirect(url_for('doube'))
 
 
-@app.route('/register')
+@app.route('/register/')
 def register():
 	form = RegisterForm()
 	if form.validate_on_submit():
@@ -59,7 +59,7 @@ def register():
 	return render_template('register.html', form=form)
 
 
-@app.route('/index', methods=["GET", "POST"])
+@app.route('/index/', methods=["GET", "POST"])
 def doube():
 	"""
 	趣味生活，就是要比

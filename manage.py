@@ -55,5 +55,6 @@ def adduser(username):
 
 
 if __name__ == "__main__":
-    app.debug = True
+    # app.debug = True
+    # only debug mode will sent redirect issue
     manager.run()
